@@ -1,4 +1,8 @@
-package com.zxh.leetcode.tencent;ListNodepublic
+package com.zxh.leetcode.tencent;
 
-class ListNode {
+
+public class ListNode {
+    int val;
+    ListNode next;
+    ListNode(int x) { val = x; }
 }
