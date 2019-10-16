@@ -9,35 +9,35 @@ package com.zxh.algorithms.sort;
  *  当两指针相遇时，我们只需要将切分元素的a[low]和左子数组最右侧的元素a[j]交换然后返回j即可。
  */
 public class QuickSort {
-//    public static void quickSort(int[] num, int low, int high){
-//        if(low >= high)
-//            return ;
-//        int i = low;
-//        int j = high+1;
-//        int temp = num[low];
-//        while(true) {
-//
-//            while (i < j && num[++i] < temp){
-//                if(i == high)
-//                    break;
-//            }
-//            while (i < j && num[--j] > temp){
-//                if(j == low)
-//                    break;
-//            }
-//            if(i >= j) break;
-//            if (i < j) {
-//                int t = num[i];
-//                num[i] = num[j];
-//                num[j] = t;
-//            }
-//        }
-//        num[low] = num[i];
-//        num[i] = temp;
-//
-//        quickSort(num, low, j-1);
-//        quickSort(num, j+1, high);
-//    }
+    public static void quickSort1(int[] num, int low, int high){
+        if(low >= high)
+            return ;
+        int i = low;
+        int j = high+1;
+        int temp = num[low];
+        while(true) {
+
+            while (i < j && num[++i] < temp){
+                if(i == high)
+                    break;
+            }
+            while (i < j && num[--j] > temp){
+                if(j == low)
+                    break;
+            }
+            if(i >= j) break;
+            if (i < j) {
+                int t = num[i];
+                num[i] = num[j];
+                num[j] = t;
+            }
+        }
+        num[low] = num[i];
+        num[i] = temp;
+
+        quickSort1(num, low, j-1);
+        quickSort1(num, j+1, high);
+    }
     // 分治法快速排序
     public static void quickSort(int array[], int low, int high) {// 传入low=0，high=array.length-1;
         int pivot, p_pos, i, t;// pivot->位索引;p_pos->轴值。
