@@ -5,6 +5,23 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+/**
+ * 题目描述：
+ *  在 O(n log n) 时间复杂度和常数级空间复杂度下，对链表进行排序。
+ *
+ * 示例 1:
+ *
+ * 输入: 4->2->1->3
+ * 输出: 1->2->3->4
+ * 示例 2:
+ *
+ * 输入: -1->5->3->4->0
+ * 输出: -1->0->3->4->5
+ *
+ * 解题思路：
+ *  首先采用指针（二倍速指针）确定中间节点位置；
+ *  然后采用归并排序算法实现排序；
+ */
 class Solution148 {
     public ListNode sortList(ListNode head) {
         //使用归并排序思想
@@ -15,12 +32,12 @@ class Solution148 {
             return head;
         }
         ListNode p = head, q = head, pre = null;
-        while(q != null && q.next != null){
-            pre = p;
-            p = p.next;
-            q = q.next.next;
-        }
-
+            while(q != null && q.next != null){
+                pre = p;
+                p = p.next;
+                q = q.next.next;
+            }
+        //前半部分链表
         pre.next = null;
         ListNode l = mergeSort(head);
         ListNode r = mergeSort(p);
