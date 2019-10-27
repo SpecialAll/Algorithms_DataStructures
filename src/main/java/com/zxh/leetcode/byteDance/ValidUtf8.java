@@ -99,5 +99,6 @@ public class ValidUtf8 {
         // This is for the case where we might not have the complete data for
         // a particular UTF-8 character.
         return numberOfBytesToProcess == 0;
+        
     }
 }
