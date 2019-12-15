@@ -1,0 +1,30 @@
+1.Which sort worked best on data in constant or increasing order (i.e., already sorted data)?
+ Why do you think this sort worked best?
+答：对于已经有序的数组，插入排序的性能是最好的，因为插入排序只需要进行N-1次比较和0次交换，归并排序的时间复杂度为NlogN，
+快速排序在处理已经有序的数组时对应的是最坏情况，此时快速排序的时间复杂度为N²
+
+2.Did the same sort do well on the case of mostly sorted data? Why or why not?
+答：对于插入排序而言，若数组大部分都已经是有序的，可以使算法的时间复杂度减小，
+对于归并排序，若数组大部分是有序的，在merge操作中会减少比较的次数，
+对于快速排序而言没有影响，因为快速排序每次都会先用shuffle操作将数组随机打乱
+
+3.In general, did the ordering of the incoming data affect the performance of the sorting algorithms?
+Please answer this question by referencing specific data from your table to support your answer.
+    答：输入数据的排序情况会影响算法的表现性能，在大量数据已经有序的情况下应该优先考虑使用插入排序，输入是无序的情况下应该优先考虑快速排序
+
+4.Which sort did best on the shorter (i.e., n = 1,000) data sets?
+Did the same one do better on the longer (i.e., n = 10,000) data sets? Why or why not?
+Please use specific data from your table to support your answer.
+    答：在小规模数据上性能较好的是插入排序，插入排序在大规模数据上性能较差，
+    在大规模输入数据上要选择递归的分治算法，其中快速排序的性能最好，
+    从测试数据中显示，对于大规模输入（N=10000）的排序，插入排序的平均运行时间为1513s，快速排序的平均运行时间为7.6s
+
+5.In general, which sort did better? Give a hypothesis as to why the difference in performance exists
+    答：大体上而言，快速排序的性能更好，经过数学推导可以得出，快速排序的平均比较次数只比最好情况多39%，即1.39NlogN，
+    对于大多数数据输入而言，快速排序的性能是最好的
+
+6.Are there results in your table that seem to be inconsistent?
+ (e.g., If I get run times for a sort that look like this {1.3, 1.5, 1.6, 7.0, 1.2, 1.6, 1.4, 1.8, 2.0, 1.5]
+ the 7.0 entry is not consistent with the rest). Why do you think this happened?
+    答：不存在不一致的结果，出现这种情况的原因可能是出现了极端情况，
+    例如在测试快速排序时刚好shuffle后得到的是一个已经有序或者倒序的结果，这种情况下的运行时间会比平均时间高很多
