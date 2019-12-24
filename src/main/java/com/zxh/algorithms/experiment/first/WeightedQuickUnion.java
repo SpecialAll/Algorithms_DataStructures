@@ -8,7 +8,7 @@ package com.zxh.algorithms.experiment.first;
 
 /**
  * 我们在findUnion的基础上发展来的QuickUnion就是为了减少数组访问的次数，
- * 但是我们发现QuickUnion如果在最坏的情况下它可能会成为一个先行结构的树，这样的话也就不能减少访问次数，
+ * 但是我们发现QuickUnion如果在最坏的情况下它可能会成为一个线行结构的树，这样的话也就不能减少访问次数，
  * 所以在这里进一步的算法分析：
  *  使用权重的树结构，每次都是将小树union到大树上，从而使整个树更加合理；
  */

@@ -16,14 +16,14 @@ public class EdgeWeightedDigraph {
     private Bag<DirectedEdge>[] adj;  //邻接表
     public int test;
     private int source;
-    private int coordinate[][];
+    private int coordinate[][];  //二维数组存储节点坐标
     public EdgeWeightedDigraph() {
         FileInputStream fis = null;
         InputStreamReader isr = null;
         BufferedReader br = null;
         try {
             String str = "";
-            fis = new FileInputStream("c:\\usa.txt");
+            fis = new FileInputStream("/home/ningque/Java/use.txt");
             isr = new InputStreamReader(fis);
             br = new BufferedReader(isr);
             str = br.readLine();
@@ -41,9 +41,9 @@ public class EdgeWeightedDigraph {
                 int a = Integer.parseInt(numbersArray1[0]);
                 int b = Integer.parseInt(numbersArray1[1]);
                 int c = Integer.parseInt(numbersArray1[2]);
-                System.out.print(a);
-                System.out.print(b);
-                System.out.print(c);
+//                System.out.print(a);
+//                System.out.print(b);
+//                System.out.print(c);
 
                 //代表一个节点a，坐标为(b,c)
                 coordinate[a][0] = b;
@@ -58,8 +58,8 @@ public class EdgeWeightedDigraph {
                 count++;
                 String str1 = str.trim();
                 String[] numbersArray2=str1.split("\\s+");
-                System.out.print(numbersArray2[0]);
-                System.out.print(numbersArray2[1]);
+//                System.out.print(numbersArray2[0]);
+//                System.out.print(numbersArray2[1]);
                 int a = Integer.parseInt(numbersArray2[0]);
                 int b = Integer.parseInt(numbersArray2[1]);
                 int a_x = coordinate[a][0];  //a顶点的横坐标
