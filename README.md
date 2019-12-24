@@ -1,6 +1,3 @@
+Algorithms and data structures are love！
 
-热爱算法！
-
-热爱数据结构！
-
-算法和数据结构是代码的灵魂！
+Algorithms and data structures are life！ 
