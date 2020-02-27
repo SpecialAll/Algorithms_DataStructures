@@ -43,7 +43,26 @@ public class MySqrt {
         }
         return (int)left;
     }
+
+    /**
+     * 今天看到一个时间复杂度更低的算法：牛顿迭代法
+     * 可以控制精度
+     *
+     */
+    public static double sqrt(double n){
+        if (n < 0) {
+            return Double.NaN;
+        }
+        double e = 1e-1;
+        double x = n;
+        double y = (x + n/x) / 2;
+        while (Math.abs(x - y) > e){
+            x = y;
+            y = (x + n/x)/2;
+        }
+        return x;
+    }
     public static void main(String[] args) {
-        System.out.println(31);
+        System.out.println(sqrt(12));
     }
 }
