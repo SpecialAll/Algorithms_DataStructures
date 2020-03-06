@@ -62,4 +62,58 @@ public class PostOrder {
             }
         }
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public void post(TreeNode node){
+        if(node == null)
+            return;
+        int left = 1;
+        int right = 2;
+        Stack<TreeNode> stack = new Stack<>();
+        Stack<Integer> tempStack = new Stack<>();
+        while(node != null || !stack.isEmpty()){
+            while(node != null){
+                stack.push(node);
+                tempStack.push(left);
+                node = node.left;
+            }
+            if(!stack.isEmpty() || tempStack.peek() == left){
+                stack.pop();
+                tempStack.push(right);
+                node = stack.peek().right;
+            }
+            if(!stack.isEmpty() || tempStack.peek() == right){
+                tempStack.pop();
+                list.add(stack.pop());
+            }
+        }
+    }
 }
