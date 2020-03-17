@@ -54,7 +54,7 @@ public class Divid {
         int ans = 0;
         long dend = Math.abs((long)dividend);
         long sor = Math.abs((long)divisor);
-        for(int i=31; i>=0; i++){
+        for(int i=31; i>=0; i--){
             if((dend>>i)>=sor){
                 ans+=1<<i;
                 dend-=sor<<i;
