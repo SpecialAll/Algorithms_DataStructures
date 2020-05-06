@@ -1,4 +1,4 @@
-package com.zxh.algorithms.packageproblem;
+package com.zxh.algorithms.heredity.packageproblem;
 
 
 import java.util.Scanner;
