@@ -1,5 +1,7 @@
 package com.zxh.leetcode.exercise;
 
+import java.util.Arrays;
+
 /**
  * @version 1.0
  * @Author ningque
@@ -8,11 +10,13 @@ package com.zxh.leetcode.exercise;
 public class CountPrimes {
     public int countPrimes1(int n) {
         int count = 0;
-        if(n==0 || n == 1)
+        if(n==0 || n == 1) {
             return count;
+        }
         for(int i=2; i < n; i++){
-            if(isPrim(i))
+            if(isPrim(i)) {
                 count++;
+            }
         }
         return count;
     }
@@ -33,23 +37,24 @@ public class CountPrimes {
      */
     public int countPrimes2(int n) {
         boolean[] ans = new boolean[n+1];
-        if(n==0 || n == 1)
+        if(n==0 || n == 1) {
             return 0;
-        for(int i=0; i < n; i++){
-            ans[i] = true;
         }
+        Arrays.fill(ans, true);
+
         for(int i=2; i<n; i++){
             if(ans[i]){
                 //i的倍数不可能是素数
-                for(int j = 2*i; j<n; j+=i){
+                for(int j = 2*i; j<n; j += i){
                     ans[j] = false;
                 }
             }
         }
         int count = 0;
         for(int i=2; i<n; i++){
-            if(ans[i])
+            if(ans[i]) {
                 count++;
+            }
         }
         return count;
     }
@@ -93,13 +98,16 @@ public class CountPrimes {
         }
         int count = 0;
         for(int i=2; i<n; i++){
-            if(ans[i])
+            if(ans[i]) {
                 count++;
+            }
         }
         return count;
     }
     public static void main(String[] args) {
         CountPrimes primes = new CountPrimes();
-        primes.countPrimes1(10);
+//        primes.countPrimes1(10);
+        System.out.println(primes.countPrimes2(10));
+
     }
 }
