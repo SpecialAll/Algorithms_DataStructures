@@ -91,6 +91,20 @@
             <artifactId>spring-boot-autoconfigure</artifactId>
             <version>2.2.6.RELEASE</version>
         </dependency>
+
+        <!-- hadoop -->
+        <dependency>
+            <groupId>org.apache.hadoop</groupId>
+            <artifactId>hadoop-client</artifactId>
+            <version>2.7.5</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.spark/spark-core -->
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-core_2.12</artifactId>
+            <version>3.0.0</version>
+        </dependency>
+
     </dependencies>
 
 
