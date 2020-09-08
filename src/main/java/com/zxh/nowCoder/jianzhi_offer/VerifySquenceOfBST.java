@@ -10,19 +10,27 @@ package com.zxh.nowCoder.jianzhi_offer;
  * 如果是则输出Yes,否则输出No。假设输入的数组的任意两个数字都互不相同。
  */
 public class VerifySquenceOfBST {
+    public static void main(String[] args) {
+        int[] sequence = {7,4,9,3,8,11,12,10};
+        System.out.println(VerifySquenceOfBST(sequence));
+    }
     /**
      * 使用非递归的方式
      * @param sequence
      * @return
      */
-    public boolean VerifySquenceOfBST(int [] sequence) {
+    public static boolean VerifySquenceOfBST(int [] sequence) {
         int len = sequence.length;
         if(len == 0)
             return false;
         int i = 0;
         while(--len > 0){
-            while(sequence[i++] < sequence[len]);
-            while(i<len && sequence[i++] > sequence[len]);
+            while(sequence[i] < sequence[len]){
+                i++;
+            }
+            while(i<len && sequence[i] > sequence[len]){
+                i++;
+            }
 
             if(i < len)
                 return false;
