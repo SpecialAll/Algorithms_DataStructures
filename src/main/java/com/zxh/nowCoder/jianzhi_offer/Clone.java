@@ -31,6 +31,7 @@ public class Clone {
         currentNode  = pHead;
         //重新遍历节点，复制随机节点
         while(currentNode != null){
+            // 注意理解下面这句话，即将当前复制节点的random节点置为当前节点random节点的下一个，因为上一步做了复制
             currentNode.next.random = currentNode.random == null ? null :currentNode.random.next;
             currentNode = currentNode.next.next;
         }
