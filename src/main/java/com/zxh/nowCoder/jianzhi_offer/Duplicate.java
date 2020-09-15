@@ -1,5 +1,6 @@
 package com.zxh.nowCoder.jianzhi_offer;
 
+import java.util.Arrays;
 import java.util.HashMap;
 
 /**
@@ -32,10 +33,27 @@ public class Duplicate {
         return flag;
     }
 
+    public static boolean duplicate2(int numbers[],int length,int [] duplication) {
+        if(length == 0 || numbers == null || length == 1){
+            return false;
+        }
+        Arrays.sort(numbers);
+        int i=0;
+        for(; i<length-1; i++){
+            if(numbers[i] == numbers[i+1]){
+                duplication[0] = numbers[i];
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     public static void main(String[] args) {
         int[] numbers = new int[]{2, 4, 2, 1, 4};
         int[] ans = new int[]{0};
-        System.out.println(duplicate(numbers, 5, ans));
+        int[] numbers2 = new int[]{2,4,3,1,4};
+        System.out.println(duplicate2(numbers2, 5, ans));
         System.out.println(ans[0]);
     }
 }
