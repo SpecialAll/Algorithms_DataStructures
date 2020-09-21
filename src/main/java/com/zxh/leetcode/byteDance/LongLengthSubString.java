@@ -38,7 +38,8 @@ public class LongLengthSubString {
                 pos.put(ss[i], i);
                 temp++;
             } else {
-                if (pos.get(ss[i]) + temp < i) { //这里可能存在之前的字符没有判断，使用debug测试一下
+                // 这里可能存在之前的字符没有判断，使用debug测试一下
+                if (pos.get(ss[i]) + temp < i) {
                     temp++;
                 } else {
                     max = Math.max(max, temp);
@@ -52,8 +53,51 @@ public class LongLengthSubString {
         return max;
     }
 
+    /**
+     * 打印字符串
+     * @param str
+     * @return
+     */
+    public int findString(String str){
+        if(str == null || str.length() == 0){
+            return 0;
+        }
+        int max = 0;
+        int temp = 0;
+        Map<Character, Integer> map = new HashMap<>();
+        int start = 0;
+        String ans = "";
+        for(int i=0; i<str.length(); i++){
+            char ch = str.charAt(i);
+            if(!map.containsKey(ch)){
+                map.put(ch, i);
+                temp++;
+            } else {
+                // 代表当前统计的子串中已经存在
+                if(i - map.get(ch) < temp){
+                    if (max < temp){
+                        max = Math.max(max, temp);
+                        ans = str.substring(start, i);
+                        temp = i - map.get(ch);
+                        start = map.get(ch) + 1;
+                    }
+                } else {
+                    temp++;
+                }
+                map.put(ch, i);
+            }
+        }
+        if(max < temp){
+            max = Math.max(max, temp);
+            ans = str.substring(start);
+        }
+        System.out.println(ans);
+        return max;
+    }
+
     public static void main(String[] args) {
         LongLengthSubString subString = new LongLengthSubString();
-        System.out.println(subString.lengthOfLongestSubstring("abba"));
+        System.out.println(subString.lengthOfLongestSubstring("ababcd"));
+        System.out.println(subString.findString("ababcd"));
     }
 }

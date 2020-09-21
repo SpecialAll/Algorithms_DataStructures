@@ -52,8 +52,9 @@ public class MaxEnvelopes {
                 }
             }
             dp[left] = env[1];
-            if(left == max)
+            if(left == max) {
                 max++;
+            }
         }
         return max;
 
