@@ -19,6 +19,7 @@ package com.zxh.leetcode.byteDance;
  * 输入: [7,6,4,3,1]
  * 输出: 0
  * 解释: 在这种情况下, 没有交易完成, 所以最大利润为 0。
+ * @author ningque
  */
 public class MaxProfit {
     public int maxProfit(int[] price){
@@ -29,5 +30,33 @@ public class MaxProfit {
             dp_i_1 = Math.max(dp_i_1, dp_i_1 + price[i]);
         }
         return dp_i_0;
+    }
+
+    /**
+     * 转换为求最大子序列和的方式
+     *
+     * @param price
+     * @return
+     */
+    public int maxProfit_2(int[] price){
+        if(price.length == 0) {
+            return 0;
+        }
+        int[] value = new int[price.length];
+        value[0] = price[0];
+        for(int i=1; i<price.length; i++){
+            value[i] = price[i] - price[i-1];
+        }
+
+        return maxSum(value);
+    }
+
+    private int maxSum(int[] value) {
+        int ans = 0;
+        for(int i=1; i<value.length; i++){
+            value[i] += Math.max(value[i-1], 0);
+            ans = Math.max(value[i], ans);
+        }
+        return ans;
     }
 }
